@@ -1,0 +1,432 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #ff4f91;
+    --light-pink: #ffb6d0;
+    --text: #ffeaf2;
+    --muted: #c4a4b5;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    color: var(--text);
+    background:
+        radial-gradient(ellipse at 50% 38%,
+            #351124 0%, #1b0b19 38%, #0b0610 78%);
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.65;
+    background-image:
+        radial-gradient(2px 2px at 10% 20%, white 50%, transparent),
+        radial-gradient(1px 1px at 30% 70%, white 50%, transparent),
+        radial-gradient(2px 2px at 80% 30%, #ffabc9 50%, transparent),
+        radial-gradient(1px 1px at 65% 85%, white 50%, transparent),
+        radial-gradient(2px 2px at 90% 65%, #ffabc9 50%, transparent),
+        radial-gradient(1px 1px at 20% 90%, white 50%, transparent);
+    background-size: 240px 240px;
+}
+
+.ambient {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.17;
+    pointer-events: none;
+}
+
+.ambient-one {
+    background: #ff1769;
+    top: 220px;
+    left: -150px;
+}
+
+.ambient-two {
+    background: #a22cff;
+    top: 450px;
+    right: -160px;
+}
+
+.navbar {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 7%;
+    border-bottom: 1px solid #ffffff0c;
+}
+
+.logo {
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.logo::first-letter {
+    color: var(--pink);
+}
+
+.nav-label {
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.nav-label span {
+    color: var(--pink);
+    margin-left: 5px;
+}
+
+.hero {
+    position: relative;
+    z-index: 1;
+    width: min(100% - 32px, 650px);
+    margin: 0 auto;
+    padding: 65px 0 55px;
+    text-align: center;
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #ff9fc1;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.line {
+    width: 25px;
+    height: 1px;
+    background: #ff6c9f88;
+}
+
+h1 {
+    margin-top: 25px;
+    font-family: Georgia, serif;
+    font-size: clamp(36px, 6vw, 57px);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+}
+
+h1 span {
+    font-style: italic;
+    color: #ff87b1;
+    text-shadow: 0 0 30px #ff387d40;
+}
+
+.intro {
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.heart-scene {
+    width: 300px;
+    height: 280px;
+    margin: 18px auto 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heart {
+    width: 300px;
+    overflow: visible;
+    filter:
+        drop-shadow(0 0 12px #ff286b) drop-shadow(0 0 30px #ff286b99) drop-shadow(0 0 55px #ff286b55);
+    animation: heartbeat 2s ease-in-out infinite;
+    transform-origin: center;
+}
+
+
+
+.heart-name {
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Georgia, serif;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 12px #ffffffbb;
+    pointer-events: none;
+}
+
+
+.heart-caption {
+    position: absolute;
+    top: 57%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #ffe0eb;
+}
+
+.orbit {
+    position: absolute;
+    border: 1px solid #ff8cb42c;
+    border-radius: 50%;
+    transform: rotate(-25deg);
+}
+
+.orbit-one {
+    width: 260px;
+    height: 105px;
+}
+
+.orbit-two {
+    width: 285px;
+    height: 135px;
+    transform: rotate(35deg);
+}
+
+.sparkle {
+    position: absolute;
+    color: #ffc4d9;
+    text-shadow: 0 0 15px var(--pink);
+    animation: twinkle 2s ease-in-out infinite alternate;
+}
+
+.sparkle-one {
+    top: 30px;
+    left: 40px;
+    font-size: 23px;
+}
+
+.sparkle-two {
+    top: 70px;
+    right: 28px;
+    font-size: 27px;
+    animation-delay: 0.5s;
+}
+
+.sparkle-three {
+    bottom: 37px;
+    left: 52px;
+    font-size: 17px;
+    animation-delay: 1s;
+}
+
+.sparkle-four {
+    bottom: 65px;
+    right: 42px;
+    font-size: 20px;
+    animation-delay: 0.7s;
+}
+
+.message-card {
+    position: relative;
+    max-width: 390px;
+    margin: 0 auto 25px;
+    padding: 25px 30px 21px;
+    border: 1px solid #ff9fc129;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #ffffff0c, #ff80b20a);
+    box-shadow: 0 15px 50px #00000020;
+    backdrop-filter: blur(12px);
+}
+
+.quote-mark {
+    display: block;
+    color: var(--pink);
+    font-family: Georgia, serif;
+    font-size: 42px;
+    line-height: 0.8;
+}
+
+.message-card p {
+    margin: 10px auto 18px;
+    max-width: 300px;
+    color: #f6dce7;
+    font-family: Georgia, serif;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.card-bottom {
+    color: #d59bb5;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+#loveButton {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    min-width: 190px;
+    padding: 15px 24px;
+    border: 1px solid #ffb0ca55;
+    border-radius: 50px;
+    color: white;
+    background: linear-gradient(135deg, #ff6099, #ef2466);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 30px #ff286b40;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+#loveButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 35px #ff286b70;
+}
+
+#loveButton:active {
+    transform: scale(0.97);
+}
+
+.button-heart {
+    font-size: 17px;
+}
+
+#response {
+    min-height: 25px;
+    margin-top: 17px;
+    color: #d9b3c5;
+    font-size: 12px;
+}
+
+footer {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 20px 12px 27px;
+    color: #927488;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.footer-heart {
+    color: var(--pink);
+}
+
+.floating-heart {
+    position: fixed;
+    bottom: -40px;
+    z-index: 5;
+    color: #ff5b98;
+    text-shadow: 0 0 15px #ff286b;
+    pointer-events: none;
+    animation: float-up linear forwards;
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.07);
+    }
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 0.35;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+
+@keyframes float-up {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 22px 18px;
+    }
+
+    .logo {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .nav-label {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .hero {
+        padding-top: 48px;
+    }
+
+    .eyebrow {
+        font-size: 8px;
+        letter-spacing: 2px;
+        gap: 8px;
+    }
+
+
+
+    .heart-scene {
+        width: 100%;
+        height: 310px;
+        transform: none;
+        margin: 10px auto;
+    }
+
+    .heart {
+        width: min(280px, 85vw);
+    }
+
+
+
+    .message-card {
+        padding: 22px 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
